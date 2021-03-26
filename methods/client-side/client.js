@@ -9,9 +9,9 @@ const { createToken } = require("../server-side/createToken");
 // For client-side auth the client uses only the app_key
 const chatClient = new StreamChat(app_key);
 
-const user_id = "steve";
+const user_id = "Cody";
 const extraData = {
-  type: "doggo",
+  type: "human",
 };
 
 // Fetch token from client-side method to create token

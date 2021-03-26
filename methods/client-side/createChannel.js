@@ -5,12 +5,19 @@ const createChannel = async (type, id, members, name) => {
     members,
     name,
   });
-  return channel.create();
+  await channel.create();
+  await channel.sendMessage({
+    text: 'hi'
+  }).then(r => console.log(r.message.id))
+  return
 };
+
+
 
 createChannel(
   "messaging",
   "testing-playground-03",
-  ["steve", "snoopy"],
+  ["steve"],
   "snoopys secret channel"
-).then((r) => console.log(r));
+)
+

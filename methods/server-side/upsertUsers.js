@@ -24,5 +24,7 @@ const makeAdmin = async (user_id) => {
   });
 };
 
+serverClient.deleteUser('steve')
+
 // upsertMany(userArray).then((r) => console.log(r));
-makeAdmin("steve").then((r) => console.log(r));
+// makeAdmin("steve").then((r) => console.log(r));
