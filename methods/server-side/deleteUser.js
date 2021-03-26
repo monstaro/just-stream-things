@@ -8,15 +8,35 @@ const secret = process.env["API_SECRET"];
 //Create server instance
 const serverClient = StreamChat.getInstance(app_key, secret);
 
+
 //Create User
 const user_id = "Josh Johnson";
-const createUser = async () => {
+const createUser = async (user_id) => {
   await serverClient.upsertUser({ id: user_id });
 };
-// createUser()
+// createUser(user_id)
 
-//Delete User
-serverClient.deleteUser("Steve");
+////////////////////////////////////////////////////////////////
 
+//Delete User (soft delete)
+const deleteUserSoft = async (user_id) => {
+  await serverClient.deleteUser(user_id, {
+      mark_messages_deleted: false,
+  });
+};
+// deleteUserSoft(user_id)
 
-//hello
+////////////////////////////////////////////////////////////////
+
+//Delete User (hard delete)
+const deleteUserSoft = async (user_id) => {
+    await serverClient.deleteUser(user_id, {
+        mark_messages_deleted: true,
+        hard_delete: true,
+        //the following param is optional, removes user from 1:1 channels
+        delete_conversation_channels: true
+    });
+  };
+
+////////////////////////////////////////////////////////////////
+// Docs reference: https://getstream.io/chat/docs/node/gdpr/?language=javascript&q=delete%20user
