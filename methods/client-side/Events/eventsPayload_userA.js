@@ -12,7 +12,6 @@ const test = async () => {
   const set = await client.connectUser({ id: userID }, token);
 
   const channel = client.channel("livestream", "watch-this-channel", {});
-
   const state = await channel.watch();
 
   return await channel.sendMessage({ text: "hey" });

@@ -20,11 +20,7 @@ const upsertOne = async (user_id) => {
 const makeAdmin = async (user_id) => {
   return await serverClient.upsertUser({
     id: user_id,
-    role: "user",
+    role: "admin",
   });
-};
+}; 
 
-serverClient.deleteUser('steve')
-
-// upsertMany(userArray).then((r) => console.log(r));
-// makeAdmin("steve").then((r) => console.log(r));

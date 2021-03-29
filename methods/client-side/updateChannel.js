@@ -7,4 +7,7 @@ const updateChannel = async (type, id, data) => {
 
 updateChannel("messaging", "testing-playground-03", {
   private: 'hide',
+  exists: true
+
 }).then((r) => console.log(r));
+

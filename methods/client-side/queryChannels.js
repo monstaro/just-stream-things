@@ -5,6 +5,7 @@ const messagingMembers = async () => {
   const filter = { type: "messaging", members: { $in: [user_id] } };
   const sort = { last_message_at: -1 };
   const result = await chatClient.queryChannels(filter, sort);
+  console.log
   return result;
 };
 
@@ -29,4 +30,4 @@ const onlyMeAndMyFriend = async (friend) => {
   return result;
 };
 
-// onlyMeAndMyFriend("george").then((r) => console.log(r));
+onlyMeAndMyFriend("george").then((r) => console.log(r));
